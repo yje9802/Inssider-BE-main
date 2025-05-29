@@ -5,6 +5,6 @@ echo "🧼 운영 컨테이너 정리 중... (로컬 이미지도 삭제)"
 docker compose --env-file .env.prod -f docker-compose.prod.yaml down --rmi local --remove-orphans
 
 echo "🚀 운영 컨테이너 실행 중..."
-docker compose --env-file .env.prod -f docker-compose.prod.yaml up -d
+docker compose --env-file .env.prod -f docker-compose.prod.yaml up --build -d
 
 echo "✅ 운영 환경 실행 완료!"
