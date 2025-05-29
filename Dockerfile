@@ -25,6 +25,10 @@ RUN ./gradlew bootJar -x test --no-daemon
 # runner 실행용 경량 이미지 생성
 FROM bellsoft/liberica-openjre-alpine:24 AS runner
 WORKDIR /app
+
+# 👉 wget 설치
+RUN apk add --no-cache wget
+
 COPY --from=builder /app/build/libs/*-SNAPSHOT.jar app.jar
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=30s --retries=3 \
