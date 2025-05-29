@@ -11,7 +11,9 @@ services:
       - app
 
   app:
-    image: inssider/inssider-be-main:1.0.0
+    build:
+      context: .
+#    image: jidak/inssider-be-main:1.0.0
     restart: "on-failure"
     env_file: [.env.prod]
     environment:
